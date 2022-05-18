@@ -1,7 +1,9 @@
 <div class="clock">
   <span class="hours"></span>
   <div *ngFor="let hrs of listaHoras; let i = index">
-    <b>{{ hrs }}</b>
+    <div [ngClass]="{'changeColor': changeColorHours(i)== true}">
+      <b>{{ hrs }}</b>
+    </div>
   </div>
   <!-- <div style="--i:1"><b>1</b></div>
     <div style="--i:2"><b>2</b></div>

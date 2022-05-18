@@ -4,6 +4,10 @@ html {
   font-size: 10px;
 }
 
+.changeColor{
+  color: red;
+}
+
 body {
   margin: 0;
   font-size: 2rem;

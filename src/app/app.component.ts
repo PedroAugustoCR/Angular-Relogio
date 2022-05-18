@@ -48,7 +48,7 @@ export class AppComponent implements OnInit {
   public observable() {
     this.data = this.putComma(this.data);
     console.log(this.data);
-    this.changeHoras(this.listaHoras, this.data);
+    // this.changeColorHours('', this.data);
   }
 
   public putComma(value: string[]) {
@@ -57,10 +57,11 @@ export class AppComponent implements OnInit {
     return str.join(',').split(',');
   }
 
-  public changeHoras(listaHoras: string[], data: string[]) {
-    // for (let i = data; i <= data; ) {
-    //   // if(data == "N")
-    //   console.log(i);
-    // }
+  public changeColorHours(index: number) {
+    for (let i = 0; i <= this.data.length; i++) {
+      // if(data == "N")
+      console.log(this.data[i]);
+    }
+    return true;
   }
 }
