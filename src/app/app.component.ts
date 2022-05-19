@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     'Online, Cloud e Batch',
   ];
 
-  public data: string[] = ['NNNNNNNNNNNNNNNNNNNNNNNN'];
+  public data: string[] = ['ONNNONNNNNNNNNONNNNNNNNN'];
 
   ngOnInit() {
     this.observable();
