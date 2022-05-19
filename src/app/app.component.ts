@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     'Online, Cloud e Batch',
   ];
 
-  public data: string[] = ['NNNNNNNNNNNNNNNNNNNNNNN'];
+  public data: string[] = ['NNNNNNNNNNNNNNNNNNNNNNNN'];
 
   ngOnInit() {
     this.observable();
@@ -47,8 +47,6 @@ export class AppComponent implements OnInit {
 
   public observable() {
     this.data = this.putComma(this.data);
-    console.log(this.data);
-    // this.changeColorHours('', this.data);
   }
 
   public putComma(value: string[]) {
@@ -58,10 +56,11 @@ export class AppComponent implements OnInit {
   }
 
   public changeColorHours(index: number) {
-    for (let i = 0; i <= this.data.length; i++) {
-      // if(data == "N")
-      console.log(this.data[i]);
-    }
-    return true;
+    return this.data[index] != 'N' ? true : false;
+  }
+
+  changePosition(index: number) {
+    let i = index / 2;
+    return i;
   }
 }
