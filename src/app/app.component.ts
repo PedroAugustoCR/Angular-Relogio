@@ -33,10 +33,13 @@ export class AppComponent implements OnInit {
     '23',
   ];
 
+  public listMessage: any[] = [];
+
   public message: string[] = [
     'Online',
     'Online e Cloud',
     'Online, Cloud e Batch',
+    'Sem Horário para Implantação',
   ];
 
   public data: string[] = ['ONNNONNNNNNNNNONNNNNNNNN'];
@@ -47,6 +50,8 @@ export class AppComponent implements OnInit {
 
   public observable() {
     this.data = this.putComma(this.data);
+    this.coloredMessageList();
+    console.log(this.data);
   }
 
   public putComma(value: string[]) {
@@ -57,6 +62,36 @@ export class AppComponent implements OnInit {
 
   public changeColorHours(index: number) {
     return this.data[index] != 'N' ? true : false;
+  }
+
+  public coloredMessageList() {
+    let message = this.message;
+    this.data.forEach((res, i) => {
+      res == 'O'
+        ? this.data.splice(i, 1, i + '- ' + message[0])
+        : res == 'N'
+        ? this.data.splice(i, 1, i + '- ' + message[3])
+        : '';
+
+      this.data = this.data.filter((res) =>
+        res.includes(message[0] || message[1])
+      );
+
+      this.data.push('*Sem mais Implantações Cadastradas');
+    });
+
+    // this.changeColor(this.data);
+  }
+
+  public changeColor(data: string) {
+    return {
+      color: data.includes(this.message[0])
+        ? 'Blue'
+        : data.includes(this.message[3])
+        ? 'Red'
+        : 'black',
+      'font-weight': 'bold',
+    };
   }
 
   changePosition(index: number) {

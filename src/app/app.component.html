@@ -1,11 +1,8 @@
-<div class="clock">
-  <div *ngFor="let hrs of listaHoras; let i = index">
-    <span class="hours"></span>
-    <div
-      [style.--i]="changePosition(i)"
-      [ngClass]="{ changeColor: changeColorHours(i) }"
-    >
-      <b>{{ hrs }}</b>
+<div style="display: flex">
+  <div class="container">
+    <div *ngFor="let hrs of data; let i = index">
+      <div [ngStyle]="changeColor(hrs)">{{ hrs }}</div>
     </div>
   </div>
+  <div class="clock"></div>
 </div>
