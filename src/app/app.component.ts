@@ -39,7 +39,7 @@ export class AppComponent implements OnInit {
     'Online',
     'Online e Cloud',
     'Online, Cloud e Batch',
-    'Sem Horário para Implantação',
+    'Sem mais Implantações Cadastradas',
   ];
 
   public data: string[] = ['ONNNONNNNNNNNNONNNNNNNNN'];
@@ -66,21 +66,11 @@ export class AppComponent implements OnInit {
 
   public coloredMessageList() {
     let message = this.message;
-    this.data.forEach((res, i) => {
-      res == 'O'
-        ? this.data.splice(i, 1, i + '- ' + message[0])
-        : res == 'N'
-        ? this.data.splice(i, 1, i + '- ' + message[3])
-        : '';
-
-      this.data = this.data.filter((res) =>
-        res.includes(message[0] || message[1])
-      );
-
-      this.data.push('*Sem mais Implantações Cadastradas');
-    });
-
-    // this.changeColor(this.data);
+    let data = this.data;
+    for (let i = 0; i <= data.length; i++) {
+      data[i] == 'O' ? this.data.splice(i, 1, message[0]) : '';
+    }
+    this.data.push('*Sem mais Implantações Cadastradas');
   }
 
   public changeColor(data: string) {
@@ -88,9 +78,9 @@ export class AppComponent implements OnInit {
       color: data.includes(this.message[0])
         ? 'Blue'
         : data.includes(this.message[3])
-        ? 'Red'
-        : 'black',
-      'font-weight': 'bold',
+        ? 'black'
+        : 'red',
+      'font-weight': data.includes(this.message[3]) ? 'normal' : 'bold',
     };
   }
 

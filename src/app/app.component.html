@@ -1,7 +1,10 @@
 <div style="display: flex">
   <div class="container">
     <div *ngFor="let hrs of data; let i = index">
-      <div [ngStyle]="changeColor(hrs)">{{ hrs }}</div>
+      <span *ngIf="hrs != 'N'" [ngStyle]="changeColor(hrs)">
+        <span *ngIf="i < 24" style="color: black;">{{ i }} -</span>
+         {{ hrs }}
+      </span>
     </div>
   </div>
   <div class="clock"></div>
